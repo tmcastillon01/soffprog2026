@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timothy Earl Mateo Castillon – Programme Operations & Knowledge Management Professional</title>
+  <meta name="description" content="Programme Operations and Knowledge Management professional with 5+ years of combined public sector and international development experience across WMO, UNHCR, and national government programmes." />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --ink:     #0d1117;
+      --fog:     #f0ede8;
+      --white:   #ffffff;
+      --sage:    #14213d;       /* primary accent — Oxford blue */
+      --sage-lt: #e6eaf2;
+      --gold:    #c8963e;       /* secondary accent */
+      --muted:   #6b7280;
+      --border:  #ddd8d0;
+      --radius:  6px;
+      --nav-h:   64px;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: var(--white); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.65; }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--muted); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sage); }
+    .nav-cta {
+      font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--sage); border-radius: var(--radius);
+      color: var(--sage); transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover { background: var(--sage); color: var(--white); }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    #home {
+      min-height: 100vh;
+      padding: calc(var(--nav-h) + 5rem) 5vw 5rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+      background: var(--fog);
+    }
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 1rem;
+    }
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.08; color: var(--ink);
+      margin-bottom: 1.4rem;
+    }
+    .hero-name em { font-style: italic; color: var(--sage); }
+    .hero-lead {
+      font-size: 1.05rem; color: var(--muted); max-width: 48ch;
+      margin-bottom: 2.2rem; line-height: 1.75;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 0.75rem 1.6rem;
+      background: var(--sage); color: var(--white);
+      border-radius: var(--radius); font-size: 0.88rem;
+      letter-spacing: 0.04em; transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-outline {
+      padding: 0.75rem 1.6rem;
+      border: 1px solid var(--ink); color: var(--ink);
+      border-radius: var(--radius); font-size: 0.88rem;
+      letter-spacing: 0.04em; transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--ink); color: var(--white); }
+
+    /* avatar card */
+    .hero-card {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.07);
+    }
+    .hero-avatar {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: var(--sage-lt);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.4rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem; color: var(--sage);
+      border: 3px solid var(--sage);
+      overflow: hidden;
+    }
+    .hero-avatar img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-card-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem; margin-bottom: 0.3rem;
+    }
+    .hero-card-role {
+      font-size: 0.82rem; color: var(--muted);
+      letter-spacing: 0.04em; margin-bottom: 1.6rem;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      border-top: 1px solid var(--border); padding-top: 1.4rem; gap: 0.5rem;
+    }
+    .stat-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.5rem; color: var(--sage); font-weight: 700;
+    }
+    .stat-lbl { font-size: 0.72rem; color: var(--muted); line-height: 1.3; }
+    .badge-row {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      justify-content: center; margin-bottom: 1.4rem;
+    }
+    .badge {
+      font-size: 0.72rem; padding: 0.28rem 0.7rem;
+      background: var(--sage-lt); color: var(--sage);
+      border-radius: 999px; letter-spacing: 0.03em;
+    }
+
+    /* ─── SECTION WRAPPER ────────────────────────────────────── */
+    section { padding: 6rem 5vw; }
+    section:nth-child(even) { background: var(--fog); }
+
+    .section-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 0.8rem;
+    }
+    .section-sub { color: var(--muted); font-size: 1rem; max-width: 55ch; margin-bottom: 3rem; }
+
+    /* ─── ABOUT ──────────────────────────────────────────────── */
+    .about-grid {
+      display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start;
+    }
+    .about-body p { color: var(--muted); margin-bottom: 1.2rem; }
+    .about-meta { display: flex; flex-direction: column; gap: 1.2rem; }
+    .meta-item { border-left: 3px solid var(--sage); padding-left: 1rem; }
+    .meta-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); }
+    .meta-value { font-size: 0.95rem; color: var(--ink); }
+
+    /* ─── SKILLS ─────────────────────────────────────────────── */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.6rem;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .skill-card:hover { box-shadow: 0 8px 30px rgba(61,107,94,0.1); border-color: var(--sage); }
+    .skill-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .skill-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+    .skill-tag {
+      font-size: 0.7rem; padding: 0.2rem 0.6rem;
+      background: var(--fog); border-radius: 4px; color: var(--muted);
+    }
+
+    /* ─── EXPERIENCE ─────────────────────────────────────────── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px; background: var(--border);
+    }
+    .tl-entry { position: relative; margin-bottom: 3rem; }
+    .tl-dot {
+      position: absolute; left: -2.45rem; top: 0.35rem;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--sage); border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--sage);
+    }
+    .tl-period {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.08em; color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .tl-role { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.15rem; }
+    .tl-org {
+      font-family: 'DM Serif Display', serif; font-size: 1rem;
+      color: var(--sage); margin-bottom: 0.3rem;
+    }
+    .tl-loc { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.8rem; }
+    .tl-ul { list-style: none; padding: 0; }
+    .tl-ul li {
+      font-size: 0.9rem; color: var(--muted); padding: 0.3rem 0 0.3rem 1.2rem;
+      position: relative; line-height: 1.6;
+    }
+    .tl-ul li::before {
+      content: '→'; position: absolute; left: 0; color: var(--sage); font-size: 0.8rem;
+    }
+
+    /* ─── EDUCATION ──────────────────────────────────────────── */
+    .edu-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
+    }
+    .edu-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.8rem;
+    }
+    .edu-year {
+      font-family: 'Space Mono', monospace; font-size: 0.72rem;
+      color: var(--gold); letter-spacing: 0.08em; margin-bottom: 0.5rem;
+    }
+    .edu-degree { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .edu-school {
+      font-family: 'DM Serif Display', serif; color: var(--sage);
+      font-size: 0.95rem; margin-bottom: 0.5rem;
+    }
+    .edu-note { font-size: 0.82rem; color: var(--muted); }
+
+    /* ─── CERTIFICATIONS ─────────────────────────────────────── */
+    .cert-subhead {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem; margin: 2.4rem 0 1.2rem;
+      color: var(--ink);
+    }
+    .cert-subhead:first-of-type { margin-top: 0; }
+    .cert-badge-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .cert-badge-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.4rem; text-align: center;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .cert-badge-card:hover { box-shadow: 0 8px 30px rgba(20,33,61,0.1); border-color: var(--sage); }
+    .cert-badge-visual {
+      width: 100%; aspect-ratio: 3/3.6; border-radius: 8px;
+      background: linear-gradient(160deg, #0d1117 0%, var(--sage) 140%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.6rem; margin-bottom: 1rem; position: relative; overflow: hidden;
+      border: 2px solid var(--gold);
+    }
+    .cert-badge-visual::before {
+      content: ''; position: absolute; width: 140%; height: 140%;
+      border: 1px solid rgba(200,150,62,0.35); border-radius: 50%;
+    }
+    .cert-badge-ring {
+      width: 62px; height: 62px; border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Mono', monospace; font-weight: 700;
+      font-size: 0.95rem; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.25);
+      z-index: 1;
+    }
+    .cert-badge-provider {
+      font-family: 'Space Mono', monospace; font-size: 0.68rem;
+      color: var(--gold); letter-spacing: 0.06em; text-transform: uppercase;
+      z-index: 1;
+    }
+    .cert-badge-name {
+      font-weight: 600; font-size: 0.85rem; color: var(--white);
+      padding: 0 0.6rem; line-height: 1.3; z-index: 1;
+    }
+    .cert-badge-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.3rem; }
+    .cert-badge-meta { font-size: 0.75rem; color: var(--muted); }
+    .cert-badge-id {
+      font-family: 'Space Mono', monospace; font-size: 0.65rem;
+      color: var(--muted); margin-top: 0.2rem; word-break: break-all;
+    }
+
+    .cert-list-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem;
+    }
+    .cert-list-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-left: 3px solid var(--sage);
+      border-radius: var(--radius); padding: 1.2rem 1.4rem;
+      transition: box-shadow 0.2s;
+    }
+    .cert-list-card:hover { box-shadow: 0 8px 30px rgba(20,33,61,0.08); }
+    .cert-list-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.3rem; }
+    .cert-list-issuer { font-size: 0.8rem; color: var(--sage); margin-bottom: 0.2rem; }
+    .cert-list-date { font-size: 0.75rem; color: var(--muted); }
+    .cert-list-verify { font-size: 0.72rem; margin-top: 0.4rem; display: inline-block; text-decoration: underline; color: var(--muted); }
+    .cert-list-verify:hover { color: var(--sage); }
+
+    /* ─── RESUME DOWNLOAD BUTTON ─────────────────────────────── */
+    .btn-download {
+      padding: 0.75rem 1.6rem;
+      background: var(--gold); color: var(--white);
+      border-radius: var(--radius); font-size: 0.88rem;
+      letter-spacing: 0.04em; transition: opacity 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-download:hover { opacity: 0.85; }
+
+    /* ─── PORTFOLIO & PUBLICATIONS ───────────────────────────── */
+    .pub-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem;
+      margin-bottom: 2.4rem;
+    }
+    .pub-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.4rem 1.5rem;
+    }
+    .pub-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.4rem; line-height: 1.4; }
+    .pub-title a { text-decoration: underline; text-underline-offset: 2px; }
+    .pub-title a:hover { color: var(--sage); }
+    .pub-venue {
+      font-family: 'DM Serif Display', serif; font-style: italic;
+      color: var(--sage); font-size: 0.88rem; margin-bottom: 0.6rem;
+    }
+    .pub-scope { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    .fw-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem;
+      margin-bottom: 2.4rem;
+    }
+    .fw-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius); padding: 1.4rem 1.5rem;
+    }
+    .fw-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.2rem; }
+    .fw-title a { text-decoration: underline; text-underline-offset: 2px; }
+    .fw-title a:hover { color: var(--sage); }
+    .fw-org { font-size: 0.78rem; color: var(--sage); margin-bottom: 0.6rem; }
+    .fw-impact { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.7rem; }
+
+    .kp-list { display: flex; flex-direction: column; gap: 1rem; }
+    .kp-item { border-left: 3px solid var(--sage); padding-left: 1rem; }
+    .kp-title { font-weight: 600; font-size: 0.88rem; }
+    .kp-note { font-size: 0.82rem; color: var(--muted); }
+
+    /* ─── LANGUAGES ──────────────────────────────────────────── */
+    .lang-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;
+    }
+    .lang-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.2rem 1.4rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .lang-flag { font-size: 1.8rem; }
+    .lang-name { font-weight: 600; font-size: 0.95rem; }
+    .lang-level { font-size: 0.78rem; color: var(--muted); }
+    .lang-bar {
+      height: 4px; background: var(--border); border-radius: 2px;
+      margin-top: 0.4rem; overflow: hidden;
+    }
+    .lang-fill { height: 100%; background: var(--sage); border-radius: 2px; }
+
+    /* ─── CONTACT ────────────────────────────────────────────── */
+    #contact { text-align: center; }
+    .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem; }
+    .contact-chip {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.7rem 1.4rem;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      font-size: 0.88rem; color: var(--muted);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-chip:hover { border-color: var(--sage); color: var(--sage); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--ink); color: rgba(255,255,255,0.4);
+      text-align: center; padding: 2rem 5vw;
+      font-size: 0.8rem; letter-spacing: 0.04em;
+    }
+    footer span { color: var(--sage); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      #home { grid-template-columns: 1fr; }
+      .hero-card { max-width: 400px; margin: 0 auto; }
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Timothy Castillon</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:timothyearlmateocastillon@gmail.com">Get In Touch</a>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Programme Operations & Knowledge Management · Climate & Hydromet Systems</p>
+    <h1 class="hero-name">
+      Building the <em>Systems</em><br>Behind Global Programmes
+    </h1>
+    <p class="hero-lead">
+      Programme Operations and Knowledge Management professional with 5+ years of combined public sector and international development experience, holding a Master's in Climate &amp; Resilience-focused African Studies with fieldwork in Kenya. I've co-engineered the tracking systems that let Programme Managers monitor 100+ international climate and hydromet projects at WMO, and co-led institutional documentation migrations to UN records standards, work I'd bring to the SOFF Secretariat's Readiness and Preparatory Support Programme.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-download" href="Castillon_CV_SOFF.pdf" download>⬇ Download Resume</a>
+      <a class="btn-primary" href="#experience">View My Experience</a>
+      <a class="btn-outline" href="https://tmcastillon01.github.io/PhotoPortfolio/" target="_blank" rel="noopener noreferrer">📷 View My Photo Portfolio</a>
+      <a class="btn-outline" href="#contact">Get In Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="hero-avatar"><img src="my_picture.png" alt="Timothy Earl Mateo Castillon"></div>
+    <p class="hero-card-name">Timothy Earl Mateo Castillon</p>
+    <p class="hero-card-role">Programme Operations & Knowledge Management</p>
+    <div class="badge-row">
+      <span class="badge">SharePoint</span>
+      <span class="badge">Python & SQL</span>
+      <span class="badge">Drupal</span>
+      <span class="badge">Power BI / Tableau</span>
+      <span class="badge">Climate & Resilience</span>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">100+</div>
+        <div class="stat-lbl">Projects Tracked</div>
+      </div>
+      <div>
+        <div class="stat-num">2,500+</div>
+        <div class="stat-lbl">Records Migrated</div>
+      </div>
+      <div>
+        <div class="stat-num">4</div>
+        <div class="stat-lbl">Languages</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-eyebrow">Background</p>
+  <h2 class="section-title">About Me</h2>
+  <p class="section-sub">Operational systems-building, records governance, and stakeholder coordination across the UN system.</p>
+  <div class="about-grid">
+    <div class="about-body">
+      <p>
+        I'm a Programme Operations and Knowledge Management professional with 5+ years of combined public sector and international development experience. At the World Meteorological Organization, I co-designed and built the centralized SharePoint tracking system that Programme Managers use to monitor a global portfolio of 100+ international climate and hydromet projects, working directly with the KIM Officer and programme managers to shape the system around their actual monitoring needs.
+      </p>
+      <p>
+        I've also led the migration of 2,500+ institutional documents to a new CMS platform, establishing metadata taxonomies and post-migration governance frameworks to keep records compliant with UN standards. My academic background adds a substantive layer to this: a Master's in Climate & Resilience-focused African Studies (EMJMD), with fieldwork in Narok and Nairobi, Kenya, and a thesis on disaster risk management strategies.
+      </p>
+      <p>
+        I'm currently building growing technical capability in data analytics, Python and SQL, through an ongoing Data Science qualification at Harvard's Extension School. I'm looking to bring this combination of systems-building, operational rigor, and cross-institutional collaboration to the SOFF Secretariat's Readiness and Preparatory Support Programme.
+      </p>
+    </div>
+    <div class="about-meta">
+      <div class="meta-item">
+        <div class="meta-label">Current Role</div>
+        <div class="meta-value">Independent Consultant — Communications & Programme Management</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Location</div>
+        <div class="meta-value">Quezon City, Philippines</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Education</div>
+        <div class="meta-value">Data Science (Python & Model Development), Harvard Extension School (ongoing, 2025)</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Previous Organizations</div>
+        <div class="meta-value">WMO · UNHCR · Local Government Academy PH</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Email</div>
+        <div class="meta-value">timothyearlmateocastillon@gmail.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-eyebrow">Competencies</p>
+  <h2 class="section-title">Skills & Expertise</h2>
+  <p class="section-sub">Core competencies built across the World Meteorological Organization, UNHCR, and national government programmes.</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🗂️</div>
+      <div class="skill-title">Operational Systems Engineering</div>
+      <p style="font-size:0.85rem;color:var(--muted);">Co-designed and built the centralized SharePoint tracking system used by WMO Programme Managers to monitor a global portfolio of 100+ climate and hydromet projects, shaped directly around their monitoring needs.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">SharePoint</span><span class="skill-tag">Power Automate</span>
+        <span class="skill-tag">Project Tracking</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🌍</div>
+      <div class="skill-title">Climate & Resilience Research</div>
+      <p style="font-size:0.85rem;color:var(--muted);">Master's-level research across three African contexts — Kenya, Tanzania, Zimbabwe — on disaster risk management, urbanization, and resource vulnerability, applying GIS and qualitative modeling.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">GIS</span><span class="skill-tag">Disaster Risk Mgmt.</span>
+        <span class="skill-tag">Qualitative Modeling</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📁</div>
+      <div class="skill-title">Records Governance & Audit Readiness</div>
+      <p style="font-size:0.85rem;color:var(--muted);">Led migration of 2,500+ institutional documents to a new CMS platform; established metadata taxonomies and post-migration governance frameworks compliant with UN records standards.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Metadata Taxonomies</span><span class="skill-tag">CMS Migration</span>
+        <span class="skill-tag">Compliance</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <div class="skill-title">Data Analysis & Reporting</div>
+      <p style="font-size:0.85rem;color:var(--muted);">Working knowledge of Python (Pandas, NumPy), SQL, Power BI, and Tableau; produced analytical reports and knowledge products for 5 Communities of Practice at WMO.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
+        <span class="skill-tag">Power BI / Tableau</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤝</div>
+      <div class="skill-title">Stakeholder Coordination</div>
+      <p style="font-size:0.85rem;color:var(--muted);">Facilitated collaboration across WMO, UNHCR, and national government programmes, managing multi-institutional workstreams under tight deadlines.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Multi-Institutional</span><span class="skill-tag">Deadline-Driven</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📢</div>
+      <div class="skill-title">Capacity Building & Communication</div>
+      <p style="font-size:0.85rem;color:var(--muted);">Designed and delivered training sessions for 300+ staff worldwide; produced advocacy and knowledge materials for global and multi-country audiences.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Training Design</span><span class="skill-tag">Advocacy Materials</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-eyebrow">Career</p>
+  <h2 class="section-title">Professional Experience</h2>
+  <p class="section-sub">A journey through international organizations, digital platforms, and global data systems.</p>
+
+  <div class="timeline">
+    <!-- Independent Consultant -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">February 2025 – Present</div>
+      <div class="tl-role">Independent Consultant – Communications & Programme Management</div>
+      <div class="tl-org">Global Technical Consultancy</div>
+      <div class="tl-loc">Multiple International Development Clients (Remote)</div>
+      <ul class="tl-ul">
+        <li>Designed and managed end-to-end digital workflows to track project deliverables and donor reporting requirements for international development clients.</li>
+        <li>Engineered automated workflow systems and structured content management frameworks to enhance cross-functional synchronization for international development clients.</li>
+      </ul>
+    </div>
+
+    <!-- WMO P1 -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">November 2023 – October 2024</div>
+      <div class="tl-role">Knowledge and Information Management Support Officer (P1)</div>
+      <div class="tl-org">World Meteorological Organization (WMO)</div>
+      <div class="tl-loc">Geneva, Switzerland</div>
+      <ul class="tl-ul">
+        <li>Engineered the centralized SharePoint tracking system used by Programme Managers to monitor a global portfolio of 100+ international climate and hydromet projects; collaborated directly with Programme Managers to design a system suited to their monitoring and reporting needs.</li>
+        <li>Co-directed the migration of the Secretariat's intranet to a new platform, consolidating 2,500+ institutional documents; established metadata taxonomies and post-migration governance frameworks ensuring compliance with UN records management standards.</li>
+        <li>Contributed to the implementation of a new workflow-approval and records management system, coordinating the secure transition of institutional documentation from five legacy platforms.</li>
+        <li>Produced analytical reports and knowledge products for 5 Communities of Practice, translating complex climate and hydromet content into accessible material for global stakeholders.</li>
+        <li>Designed and delivered 2 capacity-building sessions for 300+ staff worldwide on knowledge management and digital workflow adoption.</li>
+      </ul>
+    </div>
+
+    <!-- WMO Intern -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">May 2023 – November 2023</div>
+      <div class="tl-role">Knowledge and Information Management Intern</div>
+      <div class="tl-org">World Meteorological Organization (WMO)</div>
+      <div class="tl-loc">Geneva, Switzerland</div>
+      <ul class="tl-ul">
+        <li>Supported technical migration of institutional documents during the WMO intranet redesign, handling categorization and quality checks for accurate preservation of digital assets.</li>
+        <li>Produced analytics and reports on Community-of-Practice activity, increasing participation by 20% across knowledge-sharing networks.</li>
+      </ul>
+    </div>
+
+    <!-- UNHCR -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">September 2022 – May 2023</div>
+      <div class="tl-role">Communications and Advocacy Intern</div>
+      <div class="tl-org">United Nations High Commissioner for Refugees (UNHCR)</div>
+      <div class="tl-loc">Geneva, Switzerland</div>
+      <ul class="tl-ul">
+        <li>Managed the Global Protection Cluster's digital knowledge platform and public website on Drupal, ensuring timely dissemination of protection-related information to humanitarian actors globally.</li>
+        <li>Produced multimedia advocacy materials and technical toolkits supporting 20+ international humanitarian campaigns.</li>
+        <li>Served as the primary operational link for 15+ global field operations, consolidating field data into centralized reports and ensuring messaging alignment with global campaign objectives.</li>
+        <li>Drove a 109.7% increase in LinkedIn organic followers and 652 new Twitter/X followers in 6 months, generating 124,373+ social media engagements.</li>
+      </ul>
+    </div>
+
+    <!-- LGA Project Officer -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">November 2019 – September 2020</div>
+      <div class="tl-role">Project Officer</div>
+      <div class="tl-org">Local Government Academy (LGA)</div>
+      <div class="tl-loc">Manila, Philippines</div>
+      <ul class="tl-ul">
+        <li>Designed and orchestrated 5 national online training programmes for 300+ newly elected officials, ensuring governance continuity during the COVID-19 transition.</li>
+        <li>Managed logistics and monitoring for 20 executive coaching sessions hosting 500+ elected local leaders per session (10,000+ interactions), optimizing digital platforms for mass participation.</li>
+        <li>Produced comprehensive analytical reports for national stakeholders based on participation and outcome data, driving institutional programme improvements.</li>
+      </ul>
+    </div>
+
+    <!-- LGA Project Assistant -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">June 2018 – August 2019</div>
+      <div class="tl-role">Project Assistant</div>
+      <div class="tl-org">Local Government Academy (LGA)</div>
+      <div class="tl-loc">Manila, Philippines</div>
+      <ul class="tl-ul">
+        <li>Spearheaded the "Innovative Solutions Bank," researching and documenting 50+ governance initiatives from raw, uncatalogued data into a structured digital knowledge base.</li>
+        <li>Supported the Human Resource Development Division in delivering three national-level training programmes for local government personnel.</li>
+      </ul>
+    </div>
+
+    <!-- UP Diliman -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-period">August 2015 – July 2017</div>
+      <div class="tl-role">Student Assistantship, NCPAG Library</div>
+      <div class="tl-org">University of the Philippines Diliman</div>
+      <div class="tl-loc">Quezon City, Philippines</div>
+      <ul class="tl-ul">
+        <li>Organized and maintained academic and archival records with strict source integrity, while providing logistical and administrative support for 20+ academic programs and events.</li>
+        <li>Improved service delivery and reduced request turnaround time by 10%.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <p class="section-eyebrow">Scientific & Technical Record</p>
+  <h2 class="section-title">Portfolio & Publications</h2>
+  <p class="section-sub">Selected work spanning the knowledge lifecycle — from field research to the systems and reports that put it into action.</p>
+
+  <h3 class="cert-subhead">Peer-Reviewed & Scientific Research</h3>
+  <div class="pub-grid">
+    <div class="pub-card">
+      <div class="pub-title"><a href="https://repositorio-aberto.up.pt/handle/10216/147750" target="_blank" rel="noopener">Urban Risk Management and Building Resilience: Effective Disaster Risk Management Strategies in Narok County, Kenya</a></div>
+      <div class="pub-venue">University of Porto, Portugal · 2022</div>
+      <div class="pub-scope">Applied localized GIS and qualitative modeling to assess flood and drought resilience in rapidly urbanizing Kenyan corridors.</div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-title"><a href="https://static1.squarespace.com/static/6237a5a8cc3e680d21b1ea2f/t/63ebad5355c787128a2ee715/1676389761999/SESCAS22_Handout_2022.pdf" target="_blank" rel="noopener">Sex for Water: Assessment of Zimbabwe's Water Shortage and Gender-Based Vulnerabilities</a></div>
+      <div class="pub-venue">University of Basel, Switzerland · 2022 (panel presenter)</div>
+      <div class="pub-scope">Investigative research into the intersection of resource scarcity, governance failures, and human protection risks.</div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-title">Urbanization and the Right to Adequate Housing: Challenges and Opportunities in Dar es Salaam, Tanzania</div>
+      <div class="pub-venue">University of Bordeaux Montaigne, France · 2022</div>
+      <div class="pub-scope">Examined policy effectiveness in securing the right to adequate housing amid rapid urbanization.</div>
+    </div>
+  </div>
+
+  <h3 class="cert-subhead">Technical Frameworks & System Architectures</h3>
+  <div class="fw-grid">
+    <div class="fw-card">
+      <div class="fw-title"><a href="https://community.wmo.int/site/knowledge-hub" target="_blank" rel="noopener">WMO Internal Hub & Community Knowledge Hub</a></div>
+      <div class="fw-org">World Meteorological Organization, Geneva</div>
+      <div class="fw-impact">Contributed to a custom metadata framework supporting record provenance and searchability, as part of broader intranet and knowledge-hub migration work at WMO.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SharePoint Enterprise</span><span class="skill-tag">SQL</span><span class="skill-tag">Power Automate</span>
+      </div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-title"><a href="https://globalprotectioncluster.org/" target="_blank" rel="noopener">UNHCR Global Protection Cluster (GPC) Public Architecture</a></div>
+      <div class="fw-org">UNHCR, Geneva</div>
+      <div class="fw-impact">Supported backend workflow optimization for the Global Protection Cluster's public site, helping streamline dissemination of protection data to a global partner network.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Drupal</span><span class="skill-tag">Technical SEO</span><span class="skill-tag">HTML</span>
+      </div>
+    </div>
+    <div class="fw-card">
+      <div class="fw-title"><a href="https://globalprotectioncluster.org/node/918" target="_blank" rel="noopener">Global Protection Forum (2018–2023) Digital Repository</a></div>
+      <div class="fw-org">UNHCR Global Protection Cluster</div>
+      <div class="fw-impact">Supported the digitization and structuring of five years of global forum outputs — 300+ technical materials — for long-term accessibility and continuity.</div>
+    </div>
+  </div>
+
+  <h3 class="cert-subhead">Knowledge Management & Science-Policy Products</h3>
+  <div class="kp-list">
+    <div class="kp-item">
+      <div class="kp-title">GPC Annual Report 2022</div>
+      <div class="kp-note">Contributed as designer and data visualizer, translating humanitarian metrics into a narrative for donor and member-state advocacy.</div>
+    </div>
+    <div class="kp-item">
+      <div class="kp-title">2022 Global Protection Thematic Forum Report</div>
+      <div class="kp-note">Supported editorial design and synthesis of technical sessions into a policy-oriented reporting format.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-eyebrow">Academic Background</p>
+  <h2 class="section-title">Education</h2>
+  <p class="section-sub">A foundation built across three continents and multiple disciplines.</p>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-year">2025 (Ongoing)</div>
+      <div class="edu-degree">Advanced Professional Qualification, Data Science</div>
+      <div class="edu-school">Harvard University, Extension School, USA</div>
+      <div class="edu-note">Python and Model Development</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2020 – 2022</div>
+      <div class="edu-degree">M.A., EMJMD — European Interdisciplinary Master African Studies</div>
+      <div class="edu-school">University of Porto · University of Bayreuth · University of Bordeaux Montaigne</div>
+      <div class="edu-note">Mention Très Bien (Magna Cum Laude equivalent)</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2013 – 2019</div>
+      <div class="edu-degree">B.A., Public Administration</div>
+      <div class="edu-school">University of the Philippines – Diliman</div>
+      <div class="edu-note">Quezon City, Philippines</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">International Academic Experience</div>
+      <div class="edu-degree">Exchange & Training Programmes</div>
+      <div class="edu-school">Italy · Indonesia · Japan · Taiwan · Singapore · Thailand</div>
+      <div class="edu-note">University of Trento, Universitas Airlangga, Ferris University & Yokohama National University, Singapore Management University, and more.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <p class="section-eyebrow">Credentials</p>
+  <h2 class="section-title">Certifications</h2>
+  <p class="section-sub">Verified credentials in data analytics and programme management, alongside UN-system compliance training.</p>
+
+  <h3 class="cert-subhead">Data & Analytics</h3>
+  <div class="cert-badge-grid">
+    <div class="cert-badge-card">
+      <div class="cert-badge-visual">
+        <div class="cert-badge-ring">🎖️</div>
+        <div class="cert-badge-provider">DataCamp</div>
+        <div class="cert-badge-name">Associate Data Analyst</div>
+      </div>
+      <div class="cert-badge-title">Associate Data Analyst</div>
+      <div class="cert-badge-meta">Certified and Valid to 01/07/2028</div>
+      <div class="cert-badge-id">DAA0012314347133</div>
+    </div>
+    <div class="cert-badge-card">
+      <div class="cert-badge-visual">
+        <div class="cert-badge-ring">SQL</div>
+        <div class="cert-badge-provider">DataCamp</div>
+        <div class="cert-badge-name">SQL Associate</div>
+      </div>
+      <div class="cert-badge-title">SQL Associate</div>
+      <div class="cert-badge-meta">Certified and Valid to 06/07/2028</div>
+      <div class="cert-badge-id">SQA0012539546442</div>
+    </div>
+    <div class="cert-badge-card">
+      <div class="cert-badge-visual">
+        <div class="cert-badge-ring">AI</div>
+        <div class="cert-badge-provider">DataCamp</div>
+        <div class="cert-badge-name">AI Fundamentals</div>
+      </div>
+      <div class="cert-badge-title">AI Fundamentals</div>
+      <div class="cert-badge-meta">Certified Jul 7, 2026</div>
+      <div class="cert-badge-id">AIF0025601443549</div>
+    </div>
+    <div class="cert-badge-card">
+      <div class="cert-badge-visual">
+        <div class="cert-badge-ring">DG</div>
+        <div class="cert-badge-provider">DataCamp</div>
+        <div class="cert-badge-name">Data Governance Fundamentals</div>
+      </div>
+      <div class="cert-badge-title">Data Governance Fundamentals</div>
+      <div class="cert-badge-meta">Certified Jul 8, 2026</div>
+      <div class="cert-badge-id">DG0020408954566</div>
+    </div>
+  </div>
+  <p style="font-size:0.85rem;color:var(--muted);margin-bottom:2.4rem;">Also certified: <strong>Python Data Associate</strong> (DataCamp).</p>
+
+  <h3 class="cert-subhead">Programme & Sector</h3>
+  <div class="cert-list-grid" style="margin-bottom:2.4rem;">
+    <div class="cert-list-card">
+      <div class="cert-list-title">Google Project Management: Professional Certificate</div>
+      <div class="cert-list-issuer">Google · via Coursera (7 courses)</div>
+      <div class="cert-list-date">Completed Aug 8, 2025</div>
+      <a class="cert-list-verify" href="https://coursera.org/verify/professional-cert/61M3CD7NHHTW" target="_blank" rel="noopener">Verify credential →</a>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Operationalizing Article 6.2 of the Paris Agreement</div>
+      <div class="cert-list-issuer">UN Climate Change Regional Collaboration Centres · UNDP</div>
+      <div class="cert-list-date">Completed Jul 30, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Technical Project Management (TPM) in WASH Emergencies</div>
+      <div class="cert-list-issuer">Oxfam · via DisasterReady</div>
+      <div class="cert-list-date">Completed Aug 2, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Project Management Essentials Certificate</div>
+      <div class="cert-list-issuer">DisasterReady · Cornerstone OnDemand Foundation</div>
+      <div class="cert-list-date">Completed Aug 1, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">MEAL Essentials Certificate</div>
+      <div class="cert-list-issuer">DisasterReady · Cornerstone OnDemand Foundation</div>
+      <div class="cert-list-date">Completed Aug 9, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Grant Seeking Essentials Certificate Program</div>
+      <div class="cert-list-issuer">DisasterReady · Cornerstone OnDemand Foundation</div>
+      <div class="cert-list-date">Completed Aug 10, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Introduction to Cognitive Project Management in AI (CPMAI)™</div>
+      <div class="cert-list-issuer">Project Management Institute (PMI)</div>
+      <div class="cert-list-date">Completed Aug 5, 2025</div>
+    </div>
+    <div class="cert-list-card">
+      <div class="cert-list-title">Practical Application of Generative AI for Project Managers</div>
+      <div class="cert-list-issuer">Project Management Institute (PMI)</div>
+      <div class="cert-list-date">Completed Aug 12, 2025</div>
+    </div>
+  </div>
+
+  <h3 class="cert-subhead">UN Learning & Compliance</h3>
+  <div class="skill-tags" style="gap:0.6rem;">
+    <span class="skill-tag">BSAFE (UNDSS)</span>
+    <span class="skill-tag">Protection Fundamentals</span>
+    <span class="skill-tag">Prevention of Sexual Exploitation & Abuse (PSEA)</span>
+    <span class="skill-tag">Prevention of Harassment & Abuse of Authority</span>
+    <span class="skill-tag">Fundamentals of Fraud & Corruption Awareness</span>
+    <span class="skill-tag">Information Security Awareness</span>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages">
+  <p class="section-eyebrow">Communication</p>
+  <h2 class="section-title">Languages</h2>
+  <p class="section-sub">Multilingual capacity developed through international study and professional experience.</p>
+  <div class="lang-grid">
+    <div class="lang-card">
+      <div class="lang-flag">🇵🇭</div>
+      <div>
+        <div class="lang-name">Filipino</div>
+        <div class="lang-level">Native · C2</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇺🇸</div>
+      <div>
+        <div class="lang-name">English</div>
+        <div class="lang-level">Native · C2</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇫🇷</div>
+      <div>
+        <div class="lang-name">French</div>
+        <div class="lang-level">Intermediate · B1/B2</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:65%"></div></div>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇵🇹</div>
+      <div>
+        <div class="lang-name">Portuguese</div>
+        <div class="lang-level">Basic · A1</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:20%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-eyebrow">Let's Connect</p>
+  <h2 class="section-title">Get In Touch</h2>
+  <p class="section-sub" style="margin: 0 auto 0; text-align:center;">
+    Open to consulting engagements, international programme roles, and data science collaborations.
+  </p>
+  <div class="contact-links">
+    <a class="contact-chip" href="mailto:timothyearlmateocastillon@gmail.com">
+      <span>✉️</span> timothyearlmateocastillon@gmail.com
+    </a>
+    <a class="contact-chip" href="tel:+639618238674">
+      <span>📞</span> +63 961 823 8674
+    </a>
+    <a class="contact-chip" href="https://twitter.com/timothycastillon" target="_blank">
+      <span>🐦</span> @timothycastillon
+    </a>
+  </div>
+  <div style="margin-top:2rem;">
+    <a class="btn-download" href="Castillon_CV_SOFF.pdf" download>⬇ Download Full Resume (PDF)</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span>Timothy Earl Mateo Castillon</span>. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
