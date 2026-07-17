@@ -10,22 +10,25 @@
   <style>
     /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
-      --ink:     #0d1117;
-      --fog:     #f0ede8;
+      --ink:     #0b1420;
+      --fog:     #f4f2ee;
       --white:   #ffffff;
-      --sage:    #14213d;       /* primary accent — Oxford blue */
-      --sage-lt: #e6eaf2;
-      --gold:    #c8963e;       /* secondary accent */
-      --muted:   #6b7280;
-      --border:  #ddd8d0;
-      --radius:  6px;
+      --sage:    #002147;       /* primary accent — Oxford blue */
+      --sage-lt: #e9edf3;
+      --gold:    #ab7d2c;       /* secondary accent — warm brass */
+      --gold-lt: #f3ead8;
+      --muted:   #656b76;
+      --muted-lt: rgba(255,255,255,0.68);  /* muted text sitting directly on the blue canvas */
+      --bg-alt:  #001a38;        /* subtle alternate tint for zebra rhythm on the blue canvas */
+      --border:  #e1ddd4;
+      --radius:  8px;
       --nav-h:   64px;
     }
 
     /* ─── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { background: var(--white); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.65; }
+    body { background: var(--sage); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.65; }
     img  { display: block; max-width: 100%; }
     a    { color: inherit; text-decoration: none; }
 
@@ -35,69 +38,80 @@
       height: var(--nav-h);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 5vw;
-      background: rgba(255,255,255,0.92);
+      background: rgba(0,20,45,0.85);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
     .nav-logo {
       font-family: 'Space Mono', monospace;
       font-size: 0.8rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--sage);
+      color: var(--white);
     }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--muted); transition: color 0.2s;
+      color: rgba(255,255,255,0.7); transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--sage); }
+    .nav-links a:hover { color: var(--gold); }
     .nav-cta {
       font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
       padding: 0.45rem 1.1rem;
-      border: 1px solid var(--sage); border-radius: var(--radius);
-      color: var(--sage); transition: background 0.2s, color 0.2s;
+      border: 1px solid var(--gold); border-radius: var(--radius);
+      color: var(--gold); transition: background 0.2s, color 0.2s;
     }
-    .nav-cta:hover { background: var(--sage); color: var(--white); }
+    .nav-cta:hover { background: var(--gold); color: var(--white); }
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.4rem;
+    }
+    .nav-toggle span { width: 22px; height: 2px; background: var(--white); transition: transform 0.25s, opacity 0.25s; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─── SCROLL REVEAL ──────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
 
     /* ─── HERO ───────────────────────────────────────────────── */
     #home {
       min-height: 100vh;
       padding: calc(var(--nav-h) + 5rem) 5vw 5rem;
       display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-      background: var(--fog);
+      background: var(--sage);
     }
     .hero-eyebrow {
       font-family: 'Space Mono', monospace;
       font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--sage); margin-bottom: 1rem;
+      color: var(--gold); margin-bottom: 1rem;
     }
     .hero-name {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(2.4rem, 5vw, 4rem);
-      line-height: 1.08; color: var(--ink);
+      line-height: 1.08; color: var(--white);
       margin-bottom: 1.4rem;
     }
-    .hero-name em { font-style: italic; color: var(--sage); }
+    .hero-name em { font-style: italic; color: var(--gold); }
     .hero-lead {
-      font-size: 1.05rem; color: var(--muted); max-width: 48ch;
+      font-size: 1.05rem; color: rgba(255,255,255,0.78); max-width: 48ch;
       margin-bottom: 2.2rem; line-height: 1.75;
     }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-primary {
       padding: 0.75rem 1.6rem;
-      background: var(--sage); color: var(--white);
+      background: var(--gold); color: var(--white);
       border-radius: var(--radius); font-size: 0.88rem;
       letter-spacing: 0.04em; transition: opacity 0.2s;
     }
     .btn-primary:hover { opacity: 0.85; }
     .btn-outline {
       padding: 0.75rem 1.6rem;
-      border: 1px solid var(--ink); color: var(--ink);
+      border: 1px solid rgba(255,255,255,0.55); color: var(--white);
       border-radius: var(--radius); font-size: 0.88rem;
-      letter-spacing: 0.04em; transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.04em; transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
-    .btn-outline:hover { background: var(--ink); color: var(--white); }
+    .btn-outline:hover { background: var(--white); color: var(--sage); border-color: var(--white); }
 
     /* avatar card */
     .hero-card {
@@ -107,7 +121,7 @@
       border-radius: 12px;
       padding: 2.5rem 2rem;
       text-align: center;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.07);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.28);
     }
     .hero-avatar {
       width: 120px; height: 120px; border-radius: 50%;
@@ -151,28 +165,29 @@
 
     /* ─── SECTION WRAPPER ────────────────────────────────────── */
     section { padding: 6rem 5vw; }
-    section:nth-child(even) { background: var(--fog); }
+    section:nth-child(even) { background: var(--bg-alt); }
 
     .section-eyebrow {
       font-family: 'Space Mono', monospace;
       font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--sage); margin-bottom: 0.6rem;
+      color: var(--gold); margin-bottom: 0.6rem;
     }
     .section-title {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 0.8rem;
+      color: var(--white);
     }
-    .section-sub { color: var(--muted); font-size: 1rem; max-width: 55ch; margin-bottom: 3rem; }
+    .section-sub { color: var(--muted-lt); font-size: 1rem; max-width: 55ch; margin-bottom: 3rem; }
 
     /* ─── ABOUT ──────────────────────────────────────────────── */
     .about-grid {
       display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start;
     }
-    .about-body p { color: var(--muted); margin-bottom: 1.2rem; }
+    .about-body p { color: var(--muted-lt); margin-bottom: 1.2rem; }
     .about-meta { display: flex; flex-direction: column; gap: 1.2rem; }
-    .meta-item { border-left: 3px solid var(--sage); padding-left: 1rem; }
-    .meta-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); }
-    .meta-value { font-size: 0.95rem; color: var(--ink); }
+    .meta-item { border-left: 3px solid var(--gold); padding-left: 1rem; }
+    .meta-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+    .meta-value { font-size: 0.95rem; color: var(--white); }
 
     /* ─── SKILLS ─────────────────────────────────────────────── */
     .skills-grid {
@@ -183,7 +198,7 @@
       border-radius: var(--radius); padding: 1.6rem;
       transition: box-shadow 0.2s, border-color 0.2s;
     }
-    .skill-card:hover { box-shadow: 0 8px 30px rgba(61,107,94,0.1); border-color: var(--sage); }
+    .skill-card:hover { box-shadow: 0 8px 30px rgba(0,33,71,0.10); border-color: var(--sage); }
     .skill-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
     .skill-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
     .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
@@ -196,33 +211,33 @@
     .timeline { position: relative; padding-left: 2rem; }
     .timeline::before {
       content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-      width: 2px; background: var(--border);
+      width: 2px; background: rgba(255,255,255,0.2);
     }
     .tl-entry { position: relative; margin-bottom: 3rem; }
     .tl-dot {
       position: absolute; left: -2.45rem; top: 0.35rem;
       width: 14px; height: 14px; border-radius: 50%;
-      background: var(--sage); border: 3px solid var(--white);
-      box-shadow: 0 0 0 2px var(--sage);
+      background: var(--gold); border: 3px solid var(--sage);
+      box-shadow: 0 0 0 2px var(--gold);
     }
     .tl-period {
       font-family: 'Space Mono', monospace;
       font-size: 0.72rem; letter-spacing: 0.08em; color: var(--gold);
       margin-bottom: 0.3rem;
     }
-    .tl-role { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.15rem; }
+    .tl-role { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.15rem; color: var(--white); }
     .tl-org {
       font-family: 'DM Serif Display', serif; font-size: 1rem;
-      color: var(--sage); margin-bottom: 0.3rem;
+      color: var(--gold-lt); margin-bottom: 0.3rem;
     }
-    .tl-loc { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.8rem; }
+    .tl-loc { font-size: 0.8rem; color: var(--muted-lt); margin-bottom: 0.8rem; }
     .tl-ul { list-style: none; padding: 0; }
     .tl-ul li {
-      font-size: 0.9rem; color: var(--muted); padding: 0.3rem 0 0.3rem 1.2rem;
+      font-size: 0.9rem; color: var(--muted-lt); padding: 0.3rem 0 0.3rem 1.2rem;
       position: relative; line-height: 1.6;
     }
     .tl-ul li::before {
-      content: '→'; position: absolute; left: 0; color: var(--sage); font-size: 0.8rem;
+      content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 0.8rem;
     }
 
     /* ─── EDUCATION ──────────────────────────────────────────── */
@@ -248,7 +263,7 @@
     .cert-subhead {
       font-family: 'DM Serif Display', serif;
       font-size: 1.2rem; margin: 2.4rem 0 1.2rem;
-      color: var(--ink);
+      color: var(--white);
     }
     .cert-subhead:first-of-type { margin-top: 0; }
     .cert-badge-grid {
@@ -260,10 +275,10 @@
       border-radius: var(--radius); padding: 1.4rem; text-align: center;
       transition: box-shadow 0.2s, border-color 0.2s;
     }
-    .cert-badge-card:hover { box-shadow: 0 8px 30px rgba(20,33,61,0.1); border-color: var(--sage); }
+    .cert-badge-card:hover { box-shadow: 0 8px 30px rgba(0,33,71,0.10); border-color: var(--sage); }
     .cert-badge-visual {
       width: 100%; aspect-ratio: 3/3.6; border-radius: 8px;
-      background: linear-gradient(160deg, #0d1117 0%, var(--sage) 140%);
+      background: linear-gradient(160deg, var(--ink) 0%, var(--sage) 140%);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: 0.6rem; margin-bottom: 1rem; position: relative; overflow: hidden;
       border: 2px solid var(--gold);
@@ -306,7 +321,7 @@
       border-radius: var(--radius); padding: 1.2rem 1.4rem;
       transition: box-shadow 0.2s;
     }
-    .cert-list-card:hover { box-shadow: 0 8px 30px rgba(20,33,61,0.08); }
+    .cert-list-card:hover { box-shadow: 0 8px 30px rgba(0,33,71,0.08); }
     .cert-list-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.3rem; }
     .cert-list-issuer { font-size: 0.8rem; color: var(--sage); margin-bottom: 0.2rem; }
     .cert-list-date { font-size: 0.75rem; color: var(--muted); }
@@ -357,9 +372,9 @@
     .fw-impact { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.7rem; }
 
     .kp-list { display: flex; flex-direction: column; gap: 1rem; }
-    .kp-item { border-left: 3px solid var(--sage); padding-left: 1rem; }
-    .kp-title { font-weight: 600; font-size: 0.88rem; }
-    .kp-note { font-size: 0.82rem; color: var(--muted); }
+    .kp-item { border-left: 3px solid var(--gold); padding-left: 1rem; }
+    .kp-title { font-weight: 600; font-size: 0.88rem; color: var(--white); }
+    .kp-note { font-size: 0.82rem; color: var(--muted-lt); }
 
     /* ─── LANGUAGES ──────────────────────────────────────────── */
     .lang-grid {
@@ -385,26 +400,37 @@
     .contact-chip {
       display: flex; align-items: center; gap: 0.6rem;
       padding: 0.7rem 1.4rem;
-      border: 1px solid var(--border); border-radius: var(--radius);
-      font-size: 0.88rem; color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.3); border-radius: var(--radius);
+      font-size: 0.88rem; color: var(--muted-lt);
       transition: border-color 0.2s, color 0.2s;
     }
-    .contact-chip:hover { border-color: var(--sage); color: var(--sage); }
+    .contact-chip:hover { border-color: var(--gold); color: var(--gold); }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
-      background: var(--ink); color: rgba(255,255,255,0.4);
+      background: var(--sage); color: rgba(255,255,255,0.45);
       text-align: center; padding: 2rem 5vw;
       font-size: 0.8rem; letter-spacing: 0.04em;
+      border-top: 1px solid rgba(255,255,255,0.12);
     }
-    footer span { color: var(--sage); }
+    footer span { color: var(--gold); }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 900px) {
       #home { grid-template-columns: 1fr; }
       .hero-card { max-width: 400px; margin: 0 auto; }
       .about-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: flex; flex-direction: column; gap: 0; position: fixed;
+        top: var(--nav-h); left: 0; right: 0; background: var(--sage);
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+        max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+      }
+      .nav-links.open { max-height: 400px; }
+      .nav-links li { border-top: 1px solid rgba(255,255,255,0.12); }
+      .nav-links a { display: block; padding: 1rem 5vw; }
+      .nav-cta { display: none; }
     }
   </style>
 </head>
@@ -423,17 +449,20 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a class="nav-cta" href="mailto:timothyearlmateocastillon@gmail.com">Get In Touch</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
 <section id="home">
   <div class="hero-text">
-    <p class="hero-eyebrow">Programme Operations & Knowledge Management · Climate & Hydromet Systems</p>
+    <p class="hero-eyebrow">Geneva · Manila · California · Remote</p>
     <h1 class="hero-name">
-      Building the <em>Systems</em><br>Behind Global Programmes
+      Programme support across <em>climate, data,</em><br>and institutional systems
     </h1>
     <p class="hero-lead">
-      Programme Operations and Knowledge Management professional with 5+ years of combined public sector and international development experience, holding a Master's in Climate &amp; Resilience-focused African Studies with fieldwork in Kenya. I've co-engineered the tracking systems that let Programme Managers monitor 100+ international climate and hydromet projects at WMO, and co-led institutional documentation migrations to UN records standards, work I'd bring to the SOFF Secretariat's Readiness and Preparatory Support Programme.
+      Five years of combined public sector and international development experience, with a Master's in Climate &amp; Resilience-focused African Studies and fieldwork in Kenya. At WMO, I co-designed the tracking system Programme Managers use to monitor 100+ climate and hydromet projects, and co-led the migration of institutional documentation to UN records standards. Applying that experience to the SOFF Secretariat's Readiness and Preparatory Support Programme.
     </p>
     <div class="hero-actions">
       <a class="btn-download" href="Castillon_CV_SOFF.pdf" download>⬇ Download Resume</a>
@@ -456,8 +485,8 @@
     </div>
     <div class="hero-stats">
       <div>
-        <div class="stat-num">100+</div>
-        <div class="stat-lbl">Projects Tracked</div>
+        <div class="stat-num">5+</div>
+        <div class="stat-lbl">Years Experience</div>
       </div>
       <div>
         <div class="stat-num">2,500+</div>
@@ -472,20 +501,20 @@
 </section>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="reveal">
   <p class="section-eyebrow">Background</p>
   <h2 class="section-title">About Me</h2>
-  <p class="section-sub">Operational systems-building, records governance, and stakeholder coordination across the UN system.</p>
+  <p class="section-sub">Operational systems, records governance, and stakeholder coordination across the UN system.</p>
   <div class="about-grid">
     <div class="about-body">
       <p>
-        I'm a Programme Operations and Knowledge Management professional with 5+ years of combined public sector and international development experience. At the World Meteorological Organization, I co-designed and built the centralized SharePoint tracking system that Programme Managers use to monitor a global portfolio of 100+ international climate and hydromet projects, working directly with the KIM Officer and programme managers to shape the system around their actual monitoring needs.
+        I'm a Programme Operations and Knowledge Management professional with 5+ years of combined public sector and international development experience. At the World Meteorological Organization, I co-designed the centralized SharePoint tracking system that Programme Managers use to monitor a global portfolio of 100+ international climate and hydromet projects — working directly with the KIM Officer and programme managers to shape it around their actual monitoring needs.
       </p>
       <p>
-        I've also led the migration of 2,500+ institutional documents to a new CMS platform, establishing metadata taxonomies and post-migration governance frameworks to keep records compliant with UN standards. My academic background adds a substantive layer to this: a Master's in Climate & Resilience-focused African Studies (EMJMD), with fieldwork in Narok and Nairobi, Kenya, and a thesis on disaster risk management strategies.
+        I also co-led the migration of 2,500+ institutional documents to a new CMS platform, helping establish the metadata taxonomies and governance frameworks that keep records compliant with UN standards. My academic background adds a substantive layer to this: a Master's in Climate & Resilience-focused African Studies (EMJMD), with fieldwork in Narok and Nairobi, Kenya, and a thesis on disaster risk management strategies.
       </p>
       <p>
-        I'm currently building growing technical capability in data analytics, Python and SQL, through an ongoing Data Science qualification at Harvard's Extension School. I'm looking to bring this combination of systems-building, operational rigor, and cross-institutional collaboration to the SOFF Secretariat's Readiness and Preparatory Support Programme.
+        I'm building on this with a growing technical capability in data analytics — Python and SQL — through an ongoing Data Science qualification at Harvard's Extension School. I'm looking to bring this combination of systems work, operational rigor, and cross-institutional collaboration to the SOFF Secretariat's Readiness and Preparatory Support Programme.
       </p>
     </div>
     <div class="about-meta">
@@ -514,7 +543,7 @@
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
+<section id="skills" class="reveal">
   <p class="section-eyebrow">Competencies</p>
   <h2 class="section-title">Skills & Expertise</h2>
   <p class="section-sub">Core competencies built across the World Meteorological Organization, UNHCR, and national government programmes.</p>
@@ -522,7 +551,7 @@
     <div class="skill-card">
       <div class="skill-icon">🗂️</div>
       <div class="skill-title">Operational Systems Engineering</div>
-      <p style="font-size:0.85rem;color:var(--muted);">Co-designed and built the centralized SharePoint tracking system used by WMO Programme Managers to monitor a global portfolio of 100+ climate and hydromet projects, shaped directly around their monitoring needs.</p>
+      <p style="font-size:0.85rem;color:var(--muted);">Co-designed the centralized SharePoint tracking system used by WMO Programme Managers to monitor a global portfolio of 100+ climate and hydromet projects, shaped directly around their monitoring needs.</p>
       <div class="skill-tags">
         <span class="skill-tag">SharePoint</span><span class="skill-tag">Power Automate</span>
         <span class="skill-tag">Project Tracking</span>
@@ -575,7 +604,7 @@
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
+<section id="experience" class="reveal">
   <p class="section-eyebrow">Career</p>
   <h2 class="section-title">Professional Experience</h2>
   <p class="section-sub">A journey through international organizations, digital platforms, and global data systems.</p>
@@ -681,7 +710,7 @@
 </section>
 
 <!-- PORTFOLIO -->
-<section id="portfolio">
+<section id="portfolio" class="reveal">
   <p class="section-eyebrow">Scientific & Technical Record</p>
   <h2 class="section-title">Portfolio & Publications</h2>
   <p class="section-sub">Selected work spanning the knowledge lifecycle — from field research to the systems and reports that put it into action.</p>
@@ -744,7 +773,7 @@
 </section>
 
 <!-- EDUCATION -->
-<section id="education">
+<section id="education" class="reveal">
   <p class="section-eyebrow">Academic Background</p>
   <h2 class="section-title">Education</h2>
   <p class="section-sub">A foundation built across three continents and multiple disciplines.</p>
@@ -777,7 +806,7 @@
 </section>
 
 <!-- CERTIFICATIONS -->
-<section id="certifications">
+<section id="certifications" class="reveal">
   <p class="section-eyebrow">Credentials</p>
   <h2 class="section-title">Certifications</h2>
   <p class="section-sub">Verified credentials in data analytics and programme management, alongside UN-system compliance training.</p>
@@ -825,7 +854,7 @@
       <div class="cert-badge-id">DG0020408954566</div>
     </div>
   </div>
-  <p style="font-size:0.85rem;color:var(--muted);margin-bottom:2.4rem;">Also certified: <strong>Python Data Associate</strong> (DataCamp).</p>
+  <p style="font-size:0.85rem;color:var(--muted-lt);margin-bottom:2.4rem;">Also certified: <strong style="color:var(--white);">Python Data Associate</strong> (DataCamp).</p>
 
   <h3 class="cert-subhead">Programme & Sector</h3>
   <div class="cert-list-grid" style="margin-bottom:2.4rem;">
@@ -884,7 +913,7 @@
 </section>
 
 <!-- LANGUAGES -->
-<section id="languages">
+<section id="languages" class="reveal">
   <p class="section-eyebrow">Communication</p>
   <h2 class="section-title">Languages</h2>
   <p class="section-sub">Multilingual capacity developed through international study and professional experience.</p>
@@ -925,7 +954,7 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="reveal">
   <p class="section-eyebrow">Let's Connect</p>
   <h2 class="section-title">Get In Touch</h2>
   <p class="section-sub" style="margin: 0 auto 0; text-align:center;">
@@ -950,6 +979,46 @@
 <footer>
   <p>© 2026 <span>Timothy Earl Mateo Castillon</span>. All rights reserved.</p>
 </footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll-reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Active nav-link highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navAnchors.forEach(a => a.style.color = (a.getAttribute('href') === '#' + entry.target.id) ? 'var(--sage)' : '');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => navObserver.observe(s));
+</script>
 
 </body>
 </html>
