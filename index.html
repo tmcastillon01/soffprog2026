@@ -28,7 +28,7 @@
     /* ─── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { background: var(--sage); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.65; }
+    body { background: var(--fog); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.65; }
     img  { display: block; max-width: 100%; }
     a    { color: inherit; text-decoration: none; }
 
@@ -38,34 +38,34 @@
       height: var(--nav-h);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 5vw;
-      background: rgba(0,20,45,0.85);
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid var(--border);
     }
     .nav-logo {
       font-family: 'Space Mono', monospace;
       font-size: 0.8rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--white);
+      color: var(--sage);
     }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
-      color: rgba(255,255,255,0.7); transition: color 0.2s;
+      color: var(--muted); transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover { color: var(--sage); }
     .nav-cta {
       font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
       padding: 0.45rem 1.1rem;
-      border: 1px solid var(--gold); border-radius: var(--radius);
-      color: var(--gold); transition: background 0.2s, color 0.2s;
+      border: 1px solid var(--sage); border-radius: var(--radius);
+      color: var(--sage); transition: background 0.2s, color 0.2s;
     }
-    .nav-cta:hover { background: var(--gold); color: var(--white); }
+    .nav-cta:hover { background: var(--sage); color: var(--white); }
     .nav-toggle {
       display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.4rem;
     }
-    .nav-toggle span { width: 22px; height: 2px; background: var(--white); transition: transform 0.25s, opacity 0.25s; }
+    .nav-toggle span { width: 22px; height: 2px; background: var(--sage); transition: transform 0.25s, opacity 0.25s; }
     .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-toggle.open span:nth-child(2) { opacity: 0; }
     .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -121,10 +121,10 @@
       border-radius: 12px;
       padding: 2.5rem 2rem;
       text-align: center;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.28);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
     }
     .hero-avatar {
-      width: 120px; height: 120px; border-radius: 50%;
+      width: 168px; height: 168px; border-radius: 50%;
       background: var(--sage-lt);
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 1.4rem;
@@ -165,43 +165,36 @@
 
     /* ─── SECTION WRAPPER ────────────────────────────────────── */
     section { padding: 6rem 5vw; }
-    section:nth-child(even) { background: var(--bg-alt); }
+    section:nth-child(even) { background: var(--sage-lt); }
 
     .section-eyebrow {
       font-family: 'Space Mono', monospace;
       font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 0.6rem;
+      color: var(--sage); margin-bottom: 0.6rem;
     }
     .section-title {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 0.8rem;
-      color: var(--white);
+      color: var(--ink);
     }
-    .section-sub { color: var(--muted-lt); font-size: 1rem; max-width: 55ch; margin-bottom: 3rem; }
+    .section-sub { color: var(--muted); font-size: 1rem; max-width: 55ch; margin-bottom: 3rem; }
 
     /* ─── ABOUT ──────────────────────────────────────────────── */
     .about-grid {
       display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start;
     }
-    .about-body p { color: var(--muted-lt); margin-bottom: 1.2rem; }
+    .about-body p { color: var(--muted); margin-bottom: 1.2rem; }
     .about-meta { display: flex; flex-direction: column; gap: 1.2rem; }
-    .meta-item { border-left: 3px solid var(--gold); padding-left: 1rem; }
-    .meta-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
-    .meta-value { font-size: 0.95rem; color: var(--white); }
+    .meta-item { border-left: 3px solid var(--sage); padding-left: 1rem; }
+    .meta-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); }
+    .meta-value { font-size: 0.95rem; color: var(--ink); }
 
     /* ─── SKILLS ─────────────────────────────────────────────── */
-    .skills-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;
+    .skills-domains {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem;
     }
-    .skill-card {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.6rem;
-      transition: box-shadow 0.2s, border-color 0.2s;
-    }
-    .skill-card:hover { box-shadow: 0 8px 30px rgba(0,33,71,0.10); border-color: var(--sage); }
-    .skill-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
-    .skill-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+    .domain-block .domain-p { font-size: 0.92rem; color: var(--muted); line-height: 1.75; margin-bottom: 0.9rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1.6rem; }
     .skill-tag {
       font-size: 0.7rem; padding: 0.2rem 0.6rem;
       background: var(--fog); border-radius: 4px; color: var(--muted);
@@ -211,33 +204,33 @@
     .timeline { position: relative; padding-left: 2rem; }
     .timeline::before {
       content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-      width: 2px; background: rgba(255,255,255,0.2);
+      width: 2px; background: var(--border);
     }
     .tl-entry { position: relative; margin-bottom: 3rem; }
     .tl-dot {
       position: absolute; left: -2.45rem; top: 0.35rem;
       width: 14px; height: 14px; border-radius: 50%;
-      background: var(--gold); border: 3px solid var(--sage);
-      box-shadow: 0 0 0 2px var(--gold);
+      background: var(--sage); border: 3px solid var(--fog);
+      box-shadow: 0 0 0 2px var(--sage);
     }
     .tl-period {
       font-family: 'Space Mono', monospace;
       font-size: 0.72rem; letter-spacing: 0.08em; color: var(--gold);
       margin-bottom: 0.3rem;
     }
-    .tl-role { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.15rem; color: var(--white); }
+    .tl-role { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.15rem; color: var(--ink); }
     .tl-org {
       font-family: 'DM Serif Display', serif; font-size: 1rem;
-      color: var(--gold-lt); margin-bottom: 0.3rem;
+      color: var(--sage); margin-bottom: 0.3rem;
     }
-    .tl-loc { font-size: 0.8rem; color: var(--muted-lt); margin-bottom: 0.8rem; }
+    .tl-loc { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.8rem; }
     .tl-ul { list-style: none; padding: 0; }
     .tl-ul li {
-      font-size: 0.9rem; color: var(--muted-lt); padding: 0.3rem 0 0.3rem 1.2rem;
+      font-size: 0.9rem; color: var(--muted); padding: 0.3rem 0 0.3rem 1.2rem;
       position: relative; line-height: 1.6;
     }
     .tl-ul li::before {
-      content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 0.8rem;
+      content: '→'; position: absolute; left: 0; color: var(--sage); font-size: 0.8rem;
     }
 
     /* ─── EDUCATION ──────────────────────────────────────────── */
@@ -263,7 +256,7 @@
     .cert-subhead {
       font-family: 'DM Serif Display', serif;
       font-size: 1.2rem; margin: 2.4rem 0 1.2rem;
-      color: var(--white);
+      color: var(--ink);
     }
     .cert-subhead:first-of-type { margin-top: 0; }
     .cert-badge-grid {
@@ -339,6 +332,16 @@
     .btn-download:hover { opacity: 0.85; }
 
     /* ─── PORTFOLIO & PUBLICATIONS ───────────────────────────── */
+    .portfolio-highlight {
+      margin: 0 0 3rem; padding: 1.8rem 0;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .ph-lead {
+      font-family: 'DM Serif Display', serif; font-style: italic;
+      font-size: clamp(1.3rem, 2.4vw, 1.7rem); color: var(--ink);
+      line-height: 1.4; max-width: 42ch; margin-bottom: 0.8rem;
+    }
+    .ph-note { font-size: 0.9rem; color: var(--muted); max-width: 56ch; line-height: 1.7; }
     .pub-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem;
       margin-bottom: 2.4rem;
@@ -372,9 +375,9 @@
     .fw-impact { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.7rem; }
 
     .kp-list { display: flex; flex-direction: column; gap: 1rem; }
-    .kp-item { border-left: 3px solid var(--gold); padding-left: 1rem; }
-    .kp-title { font-weight: 600; font-size: 0.88rem; color: var(--white); }
-    .kp-note { font-size: 0.82rem; color: var(--muted-lt); }
+    .kp-item { border-left: 3px solid var(--sage); padding-left: 1rem; }
+    .kp-title { font-weight: 600; font-size: 0.88rem; color: var(--ink); }
+    .kp-note { font-size: 0.82rem; color: var(--muted); }
 
     /* ─── LANGUAGES ──────────────────────────────────────────── */
     .lang-grid {
@@ -400,18 +403,17 @@
     .contact-chip {
       display: flex; align-items: center; gap: 0.6rem;
       padding: 0.7rem 1.4rem;
-      border: 1px solid rgba(255,255,255,0.3); border-radius: var(--radius);
-      font-size: 0.88rem; color: var(--muted-lt);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      font-size: 0.88rem; color: var(--muted);
       transition: border-color 0.2s, color 0.2s;
     }
-    .contact-chip:hover { border-color: var(--gold); color: var(--gold); }
+    .contact-chip:hover { border-color: var(--sage); color: var(--sage); }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
       background: var(--sage); color: rgba(255,255,255,0.45);
       text-align: center; padding: 2rem 5vw;
       font-size: 0.8rem; letter-spacing: 0.04em;
-      border-top: 1px solid rgba(255,255,255,0.12);
     }
     footer span { color: var(--gold); }
 
@@ -420,15 +422,16 @@
       #home { grid-template-columns: 1fr; }
       .hero-card { max-width: 400px; margin: 0 auto; }
       .about-grid { grid-template-columns: 1fr; }
+      .skills-domains { grid-template-columns: 1fr; gap: 2rem; }
       .nav-toggle { display: flex; }
       .nav-links {
         display: flex; flex-direction: column; gap: 0; position: fixed;
-        top: var(--nav-h); left: 0; right: 0; background: var(--sage);
-        border-bottom: 1px solid rgba(255,255,255,0.12);
+        top: var(--nav-h); left: 0; right: 0; background: var(--white);
+        border-bottom: 1px solid var(--border);
         max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
       }
       .nav-links.open { max-height: 400px; }
-      .nav-links li { border-top: 1px solid rgba(255,255,255,0.12); }
+      .nav-links li { border-top: 1px solid var(--border); }
       .nav-links a { display: block; padding: 1rem 5vw; }
       .nav-cta { display: none; }
     }
@@ -521,7 +524,6 @@
       <div class="meta-item">
         <div class="meta-label">Current Role</div>
         <div class="meta-value">Independent Consultant — Communications & Programme Management</div>
-        <div class="meta-value">Data Camp Engineering Scholar</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Location</div>
@@ -529,7 +531,7 @@
       </div>
       <div class="meta-item">
         <div class="meta-label">Education</div>
-        <div class="meta-value">Data Science, Harvard Extension School (ongoing, 2025)</div>
+        <div class="meta-value">Data Science (Python & Model Development), Harvard Extension School (ongoing, 2025)</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Previous Organizations</div>
@@ -548,55 +550,36 @@
   <p class="section-eyebrow">Competencies</p>
   <h2 class="section-title">Skills & Expertise</h2>
   <p class="section-sub">Core competencies built across the World Meteorological Organization, UNHCR, and national government programmes.</p>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-icon">🗂️</div>
-      <div class="skill-title">Operational Systems Engineering</div>
-      <p style="font-size:0.85rem;color:var(--muted);">Co-designed the centralized SharePoint tracking system used by WMO Programme Managers to monitor a global portfolio of 100+ climate and hydromet projects, shaped directly around their monitoring needs.</p>
+  <div class="skills-domains">
+    <div class="domain-block">
+      <h3 class="cert-subhead" style="margin-top:0;">Systems &amp; Records</h3>
+      <p class="domain-p">Co-designed the centralized SharePoint tracking system used by WMO Programme Managers to monitor a global portfolio of 100+ climate and hydromet projects, shaped directly around their monitoring needs.</p>
       <div class="skill-tags">
         <span class="skill-tag">SharePoint</span><span class="skill-tag">Power Automate</span>
-        <span class="skill-tag">Project Tracking</span>
+      </div>
+      <p class="domain-p">Led migration of 2,500+ institutional documents to a new CMS platform; established metadata taxonomies and post-migration governance frameworks compliant with UN records standards.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Metadata Taxonomies</span><span class="skill-tag">Compliance</span>
       </div>
     </div>
-    <div class="skill-card">
-      <div class="skill-icon">🌍</div>
-      <div class="skill-title">Climate & Resilience Research</div>
-      <p style="font-size:0.85rem;color:var(--muted);">Master's-level research across three African contexts — Kenya, Tanzania, Zimbabwe — on disaster risk management, urbanization, and resource vulnerability, applying GIS and qualitative modeling.</p>
+    <div class="domain-block">
+      <h3 class="cert-subhead" style="margin-top:0;">Climate &amp; Data</h3>
+      <p class="domain-p">Master's-level research across three African contexts — Kenya, Tanzania, Zimbabwe — on disaster risk management, urbanization, and resource vulnerability, applying GIS and qualitative modeling.</p>
       <div class="skill-tags">
         <span class="skill-tag">GIS</span><span class="skill-tag">Disaster Risk Mgmt.</span>
-        <span class="skill-tag">Qualitative Modeling</span>
       </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">📁</div>
-      <div class="skill-title">Records Governance & Audit Readiness</div>
-      <p style="font-size:0.85rem;color:var(--muted);">Led migration of 2,500+ institutional documents to a new CMS platform; established metadata taxonomies and post-migration governance frameworks compliant with UN records standards.</p>
+      <p class="domain-p">Working knowledge of Python (Pandas, NumPy), SQL, Power BI, and Tableau; produced analytical reports and knowledge products for 5 Communities of Practice at WMO.</p>
       <div class="skill-tags">
-        <span class="skill-tag">Metadata Taxonomies</span><span class="skill-tag">CMS Migration</span>
-        <span class="skill-tag">Compliance</span>
+        <span class="skill-tag">Python / SQL</span><span class="skill-tag">Power BI / Tableau</span>
       </div>
     </div>
-    <div class="skill-card">
-      <div class="skill-icon">📊</div>
-      <div class="skill-title">Data Analysis & Reporting</div>
-      <p style="font-size:0.85rem;color:var(--muted);">Working knowledge of Python (Pandas, NumPy), SQL, Power BI, and Tableau; produced analytical reports and knowledge products for 5 Communities of Practice at WMO.</p>
-      <div class="skill-tags">
-        <span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
-        <span class="skill-tag">Power BI / Tableau</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">🤝</div>
-      <div class="skill-title">Stakeholder Coordination</div>
-      <p style="font-size:0.85rem;color:var(--muted);">Facilitated collaboration across WMO, UNHCR, and national government programmes, managing multi-institutional workstreams under tight deadlines.</p>
+    <div class="domain-block">
+      <h3 class="cert-subhead" style="margin-top:0;">Coordination &amp; Communication</h3>
+      <p class="domain-p">Facilitated collaboration across WMO, UNHCR, and national government programmes, managing multi-institutional workstreams under tight deadlines.</p>
       <div class="skill-tags">
         <span class="skill-tag">Multi-Institutional</span><span class="skill-tag">Deadline-Driven</span>
       </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">📢</div>
-      <div class="skill-title">Capacity Building & Communication</div>
-      <p style="font-size:0.85rem;color:var(--muted);">Designed and delivered training sessions for 300+ staff worldwide; produced advocacy and knowledge materials for global and multi-country audiences.</p>
+      <p class="domain-p">Designed and delivered training sessions for 300+ staff worldwide; produced advocacy and knowledge materials for global and multi-country audiences.</p>
       <div class="skill-tags">
         <span class="skill-tag">Training Design</span><span class="skill-tag">Advocacy Materials</span>
       </div>
@@ -716,6 +699,11 @@
   <h2 class="section-title">Portfolio & Publications</h2>
   <p class="section-sub">Selected work spanning the knowledge lifecycle — from field research to the systems and reports that put it into action.</p>
 
+  <div class="portfolio-highlight">
+    <p class="ph-lead">A hundred-plus projects, once scattered across individual spreadsheets, now live in one system.</p>
+    <p class="ph-note">Co-designed with WMO's Programme Managers and KIM Officer — I sat with how they actually worked, rather than building something and asking them to adapt to it.</p>
+  </div>
+
   <h3 class="cert-subhead">Peer-Reviewed & Scientific Research</h3>
   <div class="pub-grid">
     <div class="pub-card">
@@ -783,8 +771,7 @@
       <div class="edu-year">2025 (Ongoing)</div>
       <div class="edu-degree">Advanced Professional Qualification, Data Science</div>
       <div class="edu-school">Harvard University, Extension School, USA</div>
-      <div class="edu-note">Asynchronous Classes</div>
-      <div class="edu-note">+ Data Camp Engineering Scholar</div>
+      <div class="edu-note">Python and Model Development</div>
     </div>
     <div class="edu-card">
       <div class="edu-year">2020 – 2022</div>
@@ -856,7 +843,7 @@
       <div class="cert-badge-id">DG0020408954566</div>
     </div>
   </div>
-  <p style="font-size:0.85rem;color:var(--muted-lt);margin-bottom:2.4rem;">Also certified: <strong style="color:var(--white);">Python Data Associate</strong> (DataCamp).</p>
+  <p style="font-size:0.85rem;color:var(--muted);margin-bottom:2.4rem;">Also certified: <strong style="color:var(--ink);">Python Data Associate</strong> (DataCamp).</p>
 
   <h3 class="cert-subhead">Programme & Sector</h3>
   <div class="cert-list-grid" style="margin-bottom:2.4rem;">
